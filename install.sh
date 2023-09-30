@@ -32,7 +32,7 @@ python3-dev freetype-dev fribidi-dev harfbuzz-dev jpeg-dev lcms2-dev openjpeg-de
 jq udev
 
 #sudo rc-update del mdev sysinit
-sudo setup-udev
+sudo setup-mdev
 
 case $CLIENT in
   fluidd)
