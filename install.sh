@@ -34,18 +34,18 @@ jq udev
 #sudo rc-update del mdev sysinit
 #sudo setup-mdev#####
 
-case $CLIENT in
-  fluidd)
+#case $CLIENT in
+  #fluidd)
     CLIENT_RELEASE_URL=`curl -s https://api.github.com/repos/cadriel/fluidd/releases | jq -r ".[0].assets[0].browser_download_url"`
     ;;
-  mainsail)
-    CLIENT_RELEASE_URL=`curl -s https://api.github.com/repos/meteyou/mainsail/releases | jq -r ".[0].assets[0].browser_download_url"`
-    ;;
-  *)
-    echo "Unknown client $CLIENT (choose fluidd or mainsail)"
-    exit 2
-    ;;
-esac
+  #mainsail)
+   # CLIENT_RELEASE_URL=`curl -s https://api.github.com/repos/meteyou/mainsail/releases | jq -r ".[0].assets[0].browser_download_url"`
+  #  ;;
+  #*)
+   # echo "Unknown client $CLIENT (choose fluidd or mainsail)"
+   # exit 2
+   # ;;
+#esac
 
 ################################################################################
 # KLIPPER
