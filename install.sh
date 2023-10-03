@@ -73,13 +73,13 @@ EOF
 sudo chmod +x /etc/init.d/klipper
 sudo rc-update add klipper
 sudo service klipper start
-klipp
+
 ################################################################################
 # MOONRAKER
 ################################################################################
 
 sudo apk add libsodium curl-dev
-
+klipp
 test -d $MOONRAKER_PATH || git clone $MOONRAKER_REPO $MOONRAKER_PATH
 test -d $MOONRAKER_VENV_PATH || virtualenv -p python3 $MOONRAKER_VENV_PATH
 $MOONRAKER_VENV_PATH/bin/python -m pip install --upgrade pip
