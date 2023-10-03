@@ -54,6 +54,7 @@ esac
 ################################################################################
 
 <<klipp
+
 mkdir -p $CONFIG_PATH $GCODE_PATH
 
 test -d $KLIPPER_PATH || git clone $KLIPPER_REPO $KLIPPER_PATH
