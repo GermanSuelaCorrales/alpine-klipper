@@ -37,7 +37,7 @@ fi
 case $CLIENT in
   fluidd)
     #CLIENT_RELEASE_URL=`curl -s https://api.github.com/repos/cadriel/fluidd/releases | jq -r ".[0].assets[0].browser_download_url"`
-    CLIENT_RELEASE_URL=`curl -s https://api.github.com/repos/fluidd/releases/v1.25.3/fluidd.zip`
+    CLIENT_RELEASE_URL=`curl -s https://api.github.com/fluidd-core/fluidd/releases/download/v1.25.3/fluidd.zip`
     ;;
   mainsail)
     #CLIENT_RELEASE_URL=`curl -s https://api.github.com/repos/meteyou/mainsail/releases | jq -r ".[0].assets[0].browser_download_url"`
