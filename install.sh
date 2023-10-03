@@ -13,7 +13,7 @@ set -euxo pipefail
 : ${MOONRAKER_PATH:="$HOME/moonraker"}
 : ${MOONRAKER_VENV_PATH:="$HOME/venv/moonraker"}
 
-: ${CLIENT:="mainsail"}
+: ${CLIENT:="fluidd"}
 : ${CLIENT_PATH:="$HOME/www"}
 
 if [ $(id -u) = 0 ]; then
