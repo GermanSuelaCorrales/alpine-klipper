@@ -53,6 +53,7 @@ esac
 # KLIPPER
 ################################################################################
 
+<<klipp
 mkdir -p $CONFIG_PATH $GCODE_PATH
 
 test -d $KLIPPER_PATH || git clone $KLIPPER_REPO $KLIPPER_PATH
@@ -72,7 +73,7 @@ EOF
 sudo chmod +x /etc/init.d/klipper
 sudo rc-update add klipper
 sudo service klipper start
-
+klipp
 ################################################################################
 # MOONRAKER
 ################################################################################
