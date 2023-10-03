@@ -12,6 +12,7 @@ set -euxo pipefail
 : ${MOONRAKER_REPO:="https://github.com/Arksine/moonraker"}
 : ${MOONRAKER_PATH:="$HOME/moonraker"}
 : ${MOONRAKER_VENV_PATH:="$HOME/venv/moonraker"}
+
 : ${CLIENT:="fluidd"}
 : ${CLIENT_PATH:="$HOME/www"}
 
@@ -24,27 +25,27 @@ fi
 # PRE
 ################################################################################
 
-sudo apk add git unzip libffi-dev make gcc g++ \
-ncurses-dev avrdude \
+sudo apk add git unzip make gcc g++ \
+ncurses-dev avrdude gcc-avr binutils-avr avr-libc \
 python3 py3-virtualenv \
 python3-dev freetype-dev fribidi-dev harfbuzz-dev jpeg-dev lcms2-dev openjpeg-dev tcl-dev tiff-dev tk-dev zlib-dev \
 jq udev
 
-#sudo rc-update del mdev sysinit
-#sudo setup-mdev#
+sudo rc-update del mdev sysinit
+sudo setup-udev
 
-#case $CLIENT in
-  #fluidd)
+case $CLIENT in
+  fluidd)
     CLIENT_RELEASE_URL=`curl -s https://api.github.com/repos/cadriel/fluidd/releases | jq -r ".[0].assets[0].browser_download_url"`
-    #;;
-  #mainsail)
-   # CLIENT_RELEASE_URL=`curl -s https://api.github.com/repos/meteyou/mainsail/releases | jq -r ".[0].assets[0].browser_download_url"`
-  #  ;;
-  #*)
-   # echo "Unknown client $CLIENT (choose fluidd or mainsail)"
-   # exit 2
-   # ;;
-#esac
+    ;;
+  mainsail)
+    CLIENT_RELEASE_URL=`curl -s https://api.github.com/repos/meteyou/mainsail/releases | jq -r ".[0].assets[0].browser_download_url"`
+    ;;
+  *)
+    echo "Unknown client $CLIENT (choose fluidd or mainsail)"
+    exit 2
+    ;;
+esac
 
 ################################################################################
 # KLIPPER
